@@ -1,0 +1,15 @@
+<body>
+    <h1>Bienvenu sur Ec0m !</h1>
+    <h2>Regardez nos produits :</h2>
+    <div class="list-item">
+        <?php
+        for ($i = 0; $i < count($data); $i++) {
+            $title = $data[$i]['title'];
+            $description = $data[$i]['description'];
+            $price = $data[$i]['price'];
+            $image_path = $data[$i]['image_path'];
+            include("template/product.phtml");
+        }
+        ?>
+    </div>
+</body>
