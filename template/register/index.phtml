@@ -1,0 +1,26 @@
+<div class="container-border">
+
+    <h1>S'inscrire</h1>
+    <br>
+    <section>
+        <hr>
+        <form action="/register.php" method="post" class="ecom_form">
+            <label for="email">Adresse email</label>
+            <input type="email" name="email" id="email" placeholder="example@mail.com">
+            <label for="username">Pseudonyme</label>
+            <input type="text" name="username" id="username" placeholder="pseudonyme">
+            <label for="password">Mot de passe</label>
+            <input type="password" name="password" id="password">
+            <label for="confirmPassword">Confirmer le mot de passe</label>
+            <input type="password" name="confirm_password" id="confirmPassword">
+            <input type="submit" value="S'inscrire">
+        </form>
+        <p>
+            Tu as déjà un compte ? <a href="login.php">Cliquez ici !</a>
+        </p>
+        <?php if (!empty($error_message)) { ?>
+            <p class="error_message"><?= $error_message ?></p>
+        <?php } ?>
+    </section>
+
+</div>
