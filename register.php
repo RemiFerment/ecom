@@ -54,7 +54,8 @@ function Register(string &$error_message)
 Register($error_message);
 
 // View
-include("template/head.phtml");
-include("template/header.phtml");
-include("template/register/index.phtml");
-include("template/footer.phtml");
+require_once('template/base.html.phtml');
+
+require_once("template/register/index.phtml");
+
+require_once("template/footer.phtml");

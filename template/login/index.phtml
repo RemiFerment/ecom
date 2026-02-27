@@ -2,17 +2,24 @@
 
     <h1>Se connecter</h1>
     <hr>
-    <section>
-        <form action="/login.php" method="post" class="ecom_form">
-            <label for="email">Adresse email</label>
-            <input type="email" name="email" id="email" placeholder="example@mail.com">
-            <label for="password">Mot de passe</label>
-            <input type="password" name="password" id="password">
-            <input type="submit" value="Se connecter">
-        </form>
-        <p>
-            Pas de compte ? <a href="register.php">Cliquez ici !</a>
-        </p>
-    </section>
+    <?php if (isAuthenticated()): ?>
+        <p>Vous êtes déjà connecté. <a href="/logout.php">Déconnexion</a></p>
+    <?php else: ?>
+        <section>
+            <form action="/login.php" method="post" class="ecom_form">
+                <label for="email">Adresse email</label>
+                <input type="email" name="email" id="email" placeholder="example@mail.com">
+                <label for="password">Mot de passe</label>
+                <input type="password" name="password" id="password">
+                <input type="submit" value="Se connecter">
+            </form>
+            <p>
+                Pas de compte ? <a href="register.php">Cliquez ici !</a>
+            </p>
+            <?php if (!empty($error_message)) { ?>
+                <p class="error_message"><?= $error_message ?></p>
+            <?php } ?>
+        </section>
+    <?php endif; ?>
 
 </div>

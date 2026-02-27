@@ -1,16 +1,21 @@
 <?php
 $title_page = "Ec0m - Accueil";
-require_once("scripts/connexion.php");
 
-include("template/head.phtml");
-include("template/header.phtml");
+require_once('model/product.model.php');
+
+require_once('template/base.html.phtml');
+
+
+
 
 // Initialisation of products
 
-$data = SelectConnectionPDO("SELECT * FROM products");
+$data = getAllProduct();
 if ($data !== null) {
-    include("template/index.phtml");
+    require_once("template/index.phtml");
 } else {
     echo '<h2>Une erreur inattendue s\'est produite.</h2>';
 }
-include("template/footer.phtml");
+
+
+require_once("template/footer.phtml");

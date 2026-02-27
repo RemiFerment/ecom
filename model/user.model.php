@@ -1,5 +1,5 @@
 <?php
-include('model/connexion.php');
+require_once('model/connexion.php');
 
 function addUser(string $email, string $password, string $username): bool
 {
@@ -29,13 +29,12 @@ function LoginUser(string $email, string $password): ?array
         if ($statement->execute()) {
             $data = $statement->fetch(PDO::FETCH_ASSOC);
             if ($data && password_verify($password, $data['password'])) {
-                return [$data['email'], $data['username']];
+                return [
+                    'email' => $data['email'],
+                    'username' => $data['username']
+                ];
             }
         }
     }
     return null;
-}
-
-function UpdateUser(int $id, string $email, string $password, string $username){
-    
 }

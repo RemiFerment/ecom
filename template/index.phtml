@@ -3,12 +3,13 @@
     <h2>Regardez nos produits :</h2>
     <div class="list-item">
         <?php
-        for ($i = 0; $i < count($data); $i++) {
-            $title = $data[$i]['title'];
-            $description = $data[$i]['description'];
-            $price = $data[$i]['price'];
-            $image_path = $data[$i]['image_path'];
-            include("template/product.phtml");
+
+        foreach ($data as $product) {
+            $title = $product['title'];
+            $description = $product['description'];
+            $price = $product['price'];
+            $image_path = $product['image_path'];
+            require("template/product.phtml");
         }
         ?>
     </div>
